@@ -1,3 +1,4 @@
+import 'package:e_commerce_2/pages/cart_page.dart';
 import 'package:e_commerce_2/pages/intro_page.dart';
 import 'package:e_commerce_2/pages/shop_page.dart';
 import 'package:e_commerce_2/themes/light_mode.dart';
@@ -20,8 +21,8 @@ class MyApp extends StatelessWidget {
       routes: Map<String, WidgetBuilder>.from(
         {
           '/intro_page': (context) => const IntroPage(),
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:1673737885.
           '/shop_page': (context) => const ShopPage(),
+          '/cart_page': (context) => const CartPage(),
         },
       )
     );

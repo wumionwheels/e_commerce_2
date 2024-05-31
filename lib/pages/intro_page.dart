@@ -1,4 +1,4 @@
-import 'package:e_commerce_2/components/button.dart';
+import 'package:e_commerce_2/components/my_button.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatefulWidget {
@@ -22,7 +22,7 @@ class _IntroPageState extends State<IntroPage> {
                 children: [
                   // logo
                   Icon(
-                    Icons.shopping_bag_rounded, 
+                    Icons.shopping_cart_rounded, 
                     color: Theme.of(context).colorScheme.secondary, 
                     size: 72,
                   ),
