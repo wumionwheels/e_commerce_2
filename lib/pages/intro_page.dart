@@ -58,6 +58,7 @@ class _IntroPageState extends State<IntroPage> {
 
                   // button
                   MyButton(
+                    borderRadius: BorderRadius.circular(16),
                     onTap: () =>
                       Navigator.pushNamed(context, '/shop_page'),
                     color: Theme.of(context).colorScheme.primary, 
