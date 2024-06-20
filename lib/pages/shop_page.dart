@@ -1,6 +1,5 @@
 import 'package:e_commerce_2/components/my_drawer.dart';
 import 'package:e_commerce_2/components/my_product_tile.dart';
-import 'package:e_commerce_2/models/product.dart';
 import 'package:e_commerce_2/models/shop.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -46,7 +45,7 @@ class ShopPage extends StatelessWidget {
           const SizedBox(height: 24,),
           //list of products
           SizedBox(
-          height: 320,
+          height: 400,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: Product.length,
