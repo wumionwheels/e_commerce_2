@@ -58,14 +58,16 @@ class _IntroPageState extends State<IntroPage> {
 
                   // button
                   MyButton(
+                    width: 112,
+                    padding: const EdgeInsets.all(24),
                     borderRadius: BorderRadius.circular(16),
                     onTap: () =>
                       Navigator.pushNamed(context, '/shop_page'),
-                    color: Theme.of(context).colorScheme.primary, 
+                    color: Theme.of(context).colorScheme.onPrimary, 
                     child: Icon(
                       Icons.arrow_forward_rounded,
                       size: 24,
-                      color: Theme.of(context).colorScheme.onPrimary,
+                      color: Theme.of(context).colorScheme.primary,
                     )
                   )
                 ]

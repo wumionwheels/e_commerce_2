@@ -1,3 +1,4 @@
+import 'package:e_commerce_2/components/my_button.dart';
 import 'package:e_commerce_2/components/my_drawer.dart';
 import 'package:e_commerce_2/models/product.dart';
 import 'package:e_commerce_2/models/shop.dart';
@@ -30,7 +31,7 @@ class CartPage extends StatelessWidget {
                   ),
                   elevation: 0,
                   padding: const EdgeInsets.only(
-                      left: 40, right: 40, top: 24, bottom: 24),
+                      left: 32, right: 32, top: 24, bottom: 24),
                   color: Colors.grey.shade200,
                   textColor: Theme.of(context).colorScheme.secondary,
                   onPressed: () => Navigator.pop(context),
@@ -43,7 +44,7 @@ class CartPage extends StatelessWidget {
                     ),
                     elevation: 0,
                     padding: const EdgeInsets.only(
-                        left: 64, right: 64, top: 24, bottom: 24),
+                        left: 56, right: 56, top: 24, bottom: 24),
                     color: Theme.of(context).colorScheme.primary,
                     textColor: Theme.of(context).colorScheme.onPrimary,
                     onPressed: () {
@@ -60,7 +61,7 @@ class CartPage extends StatelessWidget {
                         ),
                       );
                     },
-                    child: Text(
+                    child: const Text(
                       'Remove',
                     )
                     // add button
@@ -86,7 +87,11 @@ class CartPage extends StatelessWidget {
         children: [
           // cart list
           Expanded(
-            child: ListView.builder(
+            child: 
+            cart.isEmpty? 
+            const Center(child: Text("Your cart is empty")) 
+            : 
+            ListView.builder(
               itemCount: cart.length,
               itemBuilder: (context, index) {
                 // get item in cart
@@ -94,9 +99,21 @@ class CartPage extends StatelessWidget {
 
                 // return cart tile
                 return ListTile(
-                  tileColor: Theme.of(context).colorScheme.secondary,
-                  title: Text(Product.name),
-                    subtitle: Text('\$${Product.price}'),
+                    title: Text(
+                      Product.name,
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Theme.of(context).colorScheme.secondary,
+                      ),
+                    ),
+                    subtitle: Text(
+                      '\$${Product.price}',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                    ),
                     trailing: IconButton(
                         icon: Icon(
                           Icons.delete_rounded,
@@ -105,9 +122,45 @@ class CartPage extends StatelessWidget {
                         onPressed: () => removeFromCart(context, Product)));
               },
             ),
-          )
+          ),
 
           // Checkout button
+          MyButton(
+            onTap: () {
+              showDialog(
+                context: context, 
+                builder: (context) => AlertDialog(
+                  title: Text(
+                    "This will soon be implemented, thanks for shoppping with us",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                )
+              );
+            }, 
+            color: Theme.of(context).colorScheme.onPrimary, 
+            borderRadius: BorderRadius.circular(16), 
+            padding: const EdgeInsets.only(
+              left: 40, 
+              right: 40, 
+              top: 24, 
+              bottom: 24
+            ), 
+            width: 192, 
+            child: Text(
+              'Checkout',
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.primary,
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+              ),
+            )
+          ),
+          const SizedBox(height: 16),
         ],
       ),
     );

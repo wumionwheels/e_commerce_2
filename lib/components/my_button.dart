@@ -6,6 +6,8 @@ class MyButton extends StatelessWidget {
   Color? color;
   Widget? child;
   BorderRadiusGeometry? borderRadius;
+  EdgeInsetsGeometry? padding;
+  double? width;
   
   MyButton({
     super.key,
@@ -13,6 +15,8 @@ class MyButton extends StatelessWidget {
     required this.color,
     required this.child,
     required this.borderRadius,
+    required this.padding,
+    required this.width,
   });
 
   @override
@@ -20,8 +24,8 @@ class MyButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 80,
-        padding: const EdgeInsets.all(24),
+        width: width,
+        padding: padding,
         decoration: BoxDecoration(
           color: color,
           borderRadius: borderRadius,
