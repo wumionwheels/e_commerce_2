@@ -107,9 +107,8 @@ class MyProductTile extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16),
                   ),
                   padding: const EdgeInsets.all(24),
-                  child: const Icon(
-                    Icons.favorite_rounded,
-                    size: 80,
+                  child: Image.asset(
+                    product.imagePath
                   ),
                 ),
               ),
@@ -125,7 +124,7 @@ class MyProductTile extends StatelessWidget {
                   color: Theme.of(context).colorScheme.primary,
                 ),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 8),
 
               // product description
               Text(

@@ -31,8 +31,8 @@ class CartPage extends StatelessWidget {
                   ),
                   elevation: 0,
                   padding: const EdgeInsets.only(
-                      left: 32, right: 32, top: 24, bottom: 24),
-                  color: Colors.grey.shade200,
+                      left: 28, right: 28, top: 24, bottom: 24),
+                  color: Theme.of(context).colorScheme.surface,
                   textColor: Theme.of(context).colorScheme.secondary,
                   onPressed: () => Navigator.pop(context),
                   child: const Text('Cancel'),
@@ -44,7 +44,7 @@ class CartPage extends StatelessWidget {
                     ),
                     elevation: 0,
                     padding: const EdgeInsets.only(
-                        left: 56, right: 56, top: 24, bottom: 24),
+                        left: 48, right: 48, top: 24, bottom: 24),
                     color: Theme.of(context).colorScheme.primary,
                     textColor: Theme.of(context).colorScheme.onPrimary,
                     onPressed: () {
@@ -80,8 +80,8 @@ class CartPage extends StatelessWidget {
         foregroundColor: Theme.of(context).colorScheme.secondary,
         backgroundColor: Colors.transparent,
         title: const Text('Cart'),
+        centerTitle: true,
       ),
-      drawer: const MyDrawer(),
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: Column(
         children: [
@@ -89,7 +89,15 @@ class CartPage extends StatelessWidget {
           Expanded(
             child: 
             cart.isEmpty? 
-            const Center(child: Text("Your cart is empty")) 
+            Center(child: Text(
+              "Your cart is empty",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: Theme.of(context).colorScheme.secondary,
+              ),
+              ),
+            ) 
             : 
             ListView.builder(
               itemCount: cart.length,
@@ -119,7 +127,10 @@ class CartPage extends StatelessWidget {
                           Icons.delete_rounded,
                           color: Theme.of(context).colorScheme.primary,
                         ),
-                        onPressed: () => removeFromCart(context, Product)));
+                        onPressed: () => removeFromCart(context, Product)
+                    )
+                  );
+          
               },
             ),
           ),
